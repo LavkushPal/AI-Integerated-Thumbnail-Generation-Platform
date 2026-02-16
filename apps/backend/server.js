@@ -78,8 +78,10 @@ app.get('/',(req,resp)=>{
 })
 
 const port=process.env.PORT || 3000;
-app.listen(port,()=>console.log("server is running on :"+ port));
 
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(port,()=>console.log("server is running on :"+ port));
+}
 
 //for vercel deployement
-// export default app;
+export default app;
